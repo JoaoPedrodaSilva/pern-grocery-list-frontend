@@ -1,5 +1,5 @@
 import axios from '../axios'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import { GroceriesTable } from "../components/GroceriesTable"
 import { AddGroceryForm } from "../components/AddGroceryForm"
 import { UpdateGroceryForm } from "../components/UpdateGroceryForm"
@@ -13,12 +13,11 @@ export const HomePage = () => {
 
     //get all groceries
     useEffect(() => {
-        console.log("...")
-        const getGroceries = async () => {
+        const fetchData = async () => {
             const response = await axios.get("/api")
             setAllGroceries(response.data.groceries)
         }
-        getGroceries()
+        fetchData()
     }, [])
 
 
@@ -28,16 +27,17 @@ export const HomePage = () => {
             await axios.post('/api', {
                 description: description
             })
-            // window.location.reload(true)
+            window.location.reload(true)
         } catch (error) {
             console.log(error)
         }
     }
 
-    const handleDelete = async id => {
-        try {
+    const handleDelete = async (id) => {
+        try {            
             await axios.delete(`/api/${id}`)
-            setAllGroceries(allGroceries.filter(grocery => grocery.id !== id))
+            // setAllGroceries(allGroceries.filter(grocery => grocery.id !== id))
+            window.location.reload(true)            
         } catch (error) {
             console.error(error.message)
         }
@@ -46,12 +46,12 @@ export const HomePage = () => {
     const handleUpdate = async event => {
         event.preventDefault()
         try {
-            console.log("run")
+            console.log("handle update run")
             await axios.put(`/api/${selectedGrocery.id}`, {
                 description: selectedGrocery.description
             })
             setShowUpdateForm(false)
-            // window.location.reload(true)
+            window.location.reload(true)
         } catch (error) {
             console.error(error.message)
         }
