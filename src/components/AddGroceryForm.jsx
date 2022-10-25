@@ -1,6 +1,6 @@
 export const AddGroceryForm = ({ description, setDescription, handleAdd }) => (
     <form
-        className='w-full flex items-center justify-center text-xs'
+        className='w-full flex items-center justify-center text-xs xs:text-sm gap-1 pb-1'
         onSubmit={handleAdd}
     >
 

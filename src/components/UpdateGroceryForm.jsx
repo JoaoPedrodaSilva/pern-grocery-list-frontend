@@ -5,16 +5,16 @@ export const UpdateGroceryForm = ({ showUpdateForm, setShowUpdateForm, handleUpd
 
             <div className="flex flex-col rounded-lg shadow-lg w-full bg-white mx-10">
 
-                <header className="flex justify-center p-2 border-b border-slate-200 rounded-t">
-                    <h3 className="text-xs font-bold">
+                <header className="flex justify-center p-2 rounded-t">
+                    <h3 className="text-xs xs:text-sm font-bold mt-1">
                         Update Grocery
                     </h3>
                 </header>
 
-                <form>
-                    <div className="p-6 flex-auto">
+                <form onSubmit={event => handleUpdate(event)}>
+                    <div className="p-1 px-6 flex justify-center">
                         <input
-                            className='shadow-sm appearance-none border border-gray-400 hover:border-blue-500 rounded w-full p-1 text-gray-700  focus:outline-blue-400'
+                            className='xs:w-2/3  text-xs xs:text-sm shadow-sm appearance-none border border-gray-400 hover:border-blue-500 rounded w-full p-1 text-gray-700  focus:outline-blue-400'
                             value={selectedGrocery.description}
                             maxLength='25'
                             onChange={event => {
@@ -24,23 +24,15 @@ export const UpdateGroceryForm = ({ showUpdateForm, setShowUpdateForm, handleUpd
                                 })
                             }}
                             type="text"
+                            required
                         />
                     </div>
 
 
-                    <div className="flex items-center justify-center p-3 border-t border-slate-200 rounded-b">
-                        {/* cancel button */}
+                    <div className="flex items-center justify-center p-3 rounded-b">
                         <button
-                            className="bg-red-500 hover:bg-red-700 text-sm text-white font-bold p-1 m-1 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
-                            onClick={() => setShowUpdateForm(false)}
-                        >
-                            Cancel
-                        </button>
-
-                        {/* update button */}
-                        <button
-                            className="bg-emerald-500 hover:bg-emerald-700 text-sm text-white font-bold p-1 m-1 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
-                            onClick={event => handleUpdate(event)}
+                            className="bg-yellow-500 hover:bg-yellow-600 text-white text-xs xs:text-sm font-bold py-1 px-2 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
+                            // onClick={event => handleUpdate(event)}
                             type="submit"
                         >
                             Update
