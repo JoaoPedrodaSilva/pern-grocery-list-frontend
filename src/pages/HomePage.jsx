@@ -89,6 +89,17 @@ export const HomePage = () => {
     }
 
 
+    //render in case of no data
+    if (!allGroceries) {
+        return (
+            <div className="flex flex-col justify-center items-center gap-3 pt-40">
+                <p className="text-center">Loading...</p>
+                <img className="w-2/12 sm:w-1/12 rounded-lg" src="https://financas-e-fundamentos.s3.sa-east-1.amazonaws.com/loading.gif" alt="An animation, showing the chart is being loaded." />
+            </div>
+        )
+    }
+
+
     return (
         <div className="relative h-full flex flex-col gap-1 p-2">
             <h1 className="text-center font-bold xs:text-lg">
