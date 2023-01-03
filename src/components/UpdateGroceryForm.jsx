@@ -1,4 +1,4 @@
-export const UpdateGroceryForm = ({ showUpdateForm, setShowUpdateForm, handleUpdate, selectedGrocery, setSelectedGrocery }) => (
+export const UpdateGroceryForm = ({ showUpdateForm, handleUpdate, selectedGrocery, setSelectedGrocery }) => (
 
     <section className={showUpdateForm ? `w-full text-xs` : `hidden`}>
         <div className="absolute inset-0 z-50 flex items-center justify-center">
